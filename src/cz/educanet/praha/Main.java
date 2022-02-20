@@ -1,5 +1,6 @@
 package cz.educanet.praha;
 
+import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class Main {
@@ -17,10 +18,11 @@ public class Main {
         try {
             final var lander = new LunarLanding(
                     controls,
-                    altitude,
-                    velocity
+                    altitude, // 5000
+                    velocity // 500
             );
             System.out.println("Total amount of fuel: " + lander.land());
+            System.out.println("Fuel in seconds: " + controls.getSecondsOfFuelBurn(altitude, velocity));
         } catch (IllegalStateException e) {
             System.out.println(e.getMessage());
         }
